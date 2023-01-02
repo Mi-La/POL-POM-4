@@ -21,7 +21,7 @@ class WineVersionFetcher():
         print("Donwloading %s " % wine_version_url)
         try:
             request = urllib.request.Request(wine_version_url, None, {'User-Agent': Variables.userAgent})
-            handle = urllib.request.urlopen(request, timeout=5)
+            handle = urllib.request.urlopen(request, timeout=20)
             callback(self._convert_phoenicis_wine_versions_to_v4(json.load(handle)))
         except Exception as e:
             error(traceback.format_exc())
